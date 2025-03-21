@@ -33,9 +33,9 @@
 
             <label for="genre">Genre</label>
             <select id="genre" name="genre" required>
-                <option value="1">Fiction</option>
-                <option value="3">Dystopian</option>
-                <option value="4">Fantasy</option>
+                <option value="1">Computer Science</option>
+                <option value="2">Management</option>
+                <option value="3">Law</option>
             </select>
 
             <button type="submit">Add New Books</button>
