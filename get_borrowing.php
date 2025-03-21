@@ -12,7 +12,7 @@ try {
     // Fetch all results
     $rentals = [];
     while ($row = $result->fetch_assoc()) {
-        echo "<tr data-genre=" . $row['genre_id'] . ">";
+        echo "<tr data-genre=" . $row['genre_name'] . ">";
         echo "<td>" . $row['title'] . "</td>";
         echo "<td>" . $row['author'] . "</td>";
         echo "<td>" . $row['genre_name'] . "</td>";
