@@ -53,34 +53,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr data-genre="Computer Science">
-              <td>The Catcher in the Rye</td>
-              <td>J.D. Salinger</td>
-              <td>Computer Science</td>
-              <td>Available</td>
-              <td><button>Borrow</button></td>
-            </tr>
-            <tr data-genre="Management">
-              <td>Brave New World</td>
-              <td>Aldous Huxley</td>
-              <td>Management</td>
-              <td>Available</td>
-              <td><button>Borrow</button></td>
-            </tr>
-            <tr data-genre="Law">
-              <td>The Hobbit</td>
-              <td>J.R.R. Tolkien</td>
-              <td>Law</td>
-              <td>Available</td>
-              <td><button>Borrow</button></td>
-            </tr>
-            <tr data-genre="Law">
-              <td>The Catcher in the Rye</td>
-              <td>J.R.R. Tolkien</td>
-              <td>Law</td>
-              <td>Available</td>
-              <td><button>Borrow</button></td>
-            </tr>
+            <?php include 'get_borrowing.php';?>
           </tbody>
         </table>
         <script>
