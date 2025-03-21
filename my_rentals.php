@@ -15,7 +15,7 @@
       <ul>
         <li><a href="./Borrowing.html">Borrowing</a></li>
         <li><a href="./View Borrowed.html">View Borrowed</a></li>
-        <li><a href="./My Rentals.html" class="active">My Rentals</a></li>
+        <li><a href="./my_rentals.php" class="active">My Rentals</a></li>
         <li><a href="./add_new_rentals.php">Add New Rentals</a></li>
       </ul>
     </nav>
@@ -34,7 +34,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <?php include 'get_my_rentals.php'; ?>
+            <!-- <tr>
               <td>The Great Gatsby</td>
               <td>2025-03-15</td>
               <td>Rented</td>
@@ -51,7 +52,7 @@
               <td>2025-03-25</td>
               <td>Rented</td>
               <td><button>Confirm Return</button></td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
       </div>

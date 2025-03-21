@@ -17,7 +17,7 @@
         <ul>
             <li><a href="./Borrowing.html">Borrowing</a></li>
             <li><a href="./View Borrowed.html">View Borrowed</a></li>
-            <li><a href="./My Rentals.html">My Rentals</a></li>
+            <li><a href="./my_rentals.php">My Rentals</a></li>
             <li><a href="./add_new_rentals.php" class="active">Add New Rentals</a></li>
         </ul>
     </nav>

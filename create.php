@@ -22,8 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // $sql = "INSERT INTO books (title, author, description) VALUES (?, ?, ?)";
     $stmt = $conn->prepare($sql);
 
-    print_r($lender_id);
-
+   
 
     if ($stmt) {
         $stmt->bind_param('sssii', $title, $author, $status, $genre, $lender_id);
