@@ -1,8 +1,7 @@
 <?php
 include './db.php';
 
-try {
-    // Replace PDO with MySQLi              
+try {           
     $query = "SELECT * FROM book b inner join genre g on b.genre_id = g.genre_id";
     $result = $conn->query($query);
 
@@ -18,10 +17,10 @@ try {
         echo "<td>" . $row['author'] . "</td>";
         echo "<td>" . $row['genre_name'] . "</td>";
         echo "<td>" . $row['status'] . "</td>";
-        echo " <td><button>Borrow</button></td>";
-        echo "</tr>";
-
-        
+        // echo " <td><a class="btn btn-primary" href="borrowing.php?book_id=' . $row['book_id'] . '" role="button">Borrow</a></td>";
+        echo " <td> <a class='btn btn-primary' href='borrowing.php?book_id= ".$row['book_id']."' >Borrow</a> </td>";
+        // echo " <td><button>Borrow</button></td>";
+        echo "</tr>";    
     }
 
 
@@ -30,7 +29,6 @@ try {
 
     // Close connection
     $conn->close();
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 } catch (PDOException $e) {
     // Handle database connection errors
