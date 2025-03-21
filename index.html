@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sharing Library</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Sharing Library</h1>
+    </header>
+
+    <main class="login-container">
+        <div class="login-form">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <button type="submit" class="login-button">Login</button>
+
+                <div class="signup-link">
+                    <p>Don't have an account? <a href="./Register.html">Sign up</a></p>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 P2P Library. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // 阻止表单默认提交
+
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+
+            // 这里可以添加更复杂的验证逻辑，比如发送到服务器
+            if (username === "admin" && password === "123456") {
+                localStorage.setItem("isLoggedIn", "true"); // 存储登录状态
+                localStorage.setItem("username", username); // 存储用户名
+                window.location.href = "./Borrowing.html"; // 跳转到 borrowing 页面
+            } else {
+                alert("Invalid username or password!");
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+

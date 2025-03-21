@@ -1,0 +1,114 @@
+/* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F5F5F5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Header and Footer styles */
+header, footer {
+    background-color: black;
+    color: #FFD700;
+    text-align: center;
+    padding: 15px 0;
+    width: 100%;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Navigation bar styles */
+nav {
+    background-color: black;
+    width: 200px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding-top: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    text-align: left;
+    margin: 20px 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #FFD700;
+    display: block;
+    padding: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+nav ul li a.active, nav ul li a:hover {
+    background-color: #FFD700;
+    color: black;
+    font-weight: bold;
+}
+
+/* Main content area styles */
+main {
+    margin-left: 220px;
+    padding: 20px;
+    flex-grow: 1;
+}
+
+/* Table container styling */
+.table-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 60%; /* Ensures the form is inside the container */
+    margin: auto;
+}
+
+/* Label styling */
+label {
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 5px;
+    color: black;
+}
+
+/* Input field and select styling */
+input, select {
+    width: 100%; /* Ensure input and select fields fill the container */
+    padding: 12px; /* Increased padding for better appearance */
+    margin-bottom: 15px;
+    border: 2px solid black; /* Increased border width */
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box; /* Prevents input fields from overflowing the container */
+}
+
+/* Button styling */
+button {
+    background-color: #FFD700; /* Gold color */
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: black;
+    color: #FFD700; /* Hover effect: background turns black, text turns gold */
+}
+
