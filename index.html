@@ -28,7 +28,7 @@
                 <button type="submit" class="login-button">Login</button>
 
                 <div class="signup-link">
-                    <p>Don't have an account? <a href="./Register.html">Sign up</a></p>
+                    <p>Don't have an account? <a href="./register.php">Sign up</a></p>
                 </div>
             </form>
         </div>
@@ -49,7 +49,7 @@
             if (username === "admin" && password === "123456") {
                 localStorage.setItem("isLoggedIn", "true"); // 存储登录状态
                 localStorage.setItem("username", username); // 存储用户名
-                window.location.href = "./Borrowing.html"; // 跳转到 borrowing 页面
+                window.location.href = "./borrowing.php"; // 跳转到 borrowing 页面
             } else {
                 alert("Invalid username or password!");
             }

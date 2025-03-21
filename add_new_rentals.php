@@ -15,8 +15,8 @@
 
     <nav>
         <ul>
-            <li><a href="./Borrowing.html">Borrowing</a></li>
-            <li><a href="./View Borrowed.html">View Borrowed</a></li>
+            <li><a href="./borrowing.php">Borrowing</a></li>
+            <li><a href="./view_borrowed.php">View Borrowed</a></li>
             <li><a href="./my_rentals.php">My Rentals</a></li>
             <li><a href="./add_new_rentals.php" class="active">Add New Rentals</a></li>
         </ul>
@@ -34,8 +34,8 @@
             <label for="genre">Genre</label>
             <select id="genre" name="genre" required>
                 <option value="1">Computer Science</option>
-                <option value="2">Management</option>
-                <option value="3">Law</option>
+                <option value="3">Management</option>
+                <option value="4">Law</option>
             </select>
 
             <button type="submit">Add New Books</button>

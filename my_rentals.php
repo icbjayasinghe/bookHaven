@@ -13,8 +13,8 @@
 
     <nav>
       <ul>
-        <li><a href="./Borrowing.html">Borrowing</a></li>
-        <li><a href="./View Borrowed.html">View Borrowed</a></li>
+        <li><a href="./borrowing.php">Borrowing</a></li>
+        <li><a href="./view_borrowed.php">View Borrowed</a></li>
         <li><a href="./my_rentals.php" class="active">My Rentals</a></li>
         <li><a href="./add_new_rentals.php">Add New Rentals</a></li>
       </ul>
