@@ -34,6 +34,14 @@
           onkeyup="searchBooks()"
         />
 
+        <!-- Genre search buttons -->
+        <div class="genre-buttons">
+          <button onclick="filterByGenre('Computer Science')">Computer Science</button>
+          <button onclick="filterByGenre('Management')">Management</button>
+          <button onclick="filterByGenre('Law')">Law</button>
+        </div>
+        <button onclick="resetTable()">Reset</button>
+
         <table id="bookTable">
           <thead>
             <tr>
@@ -45,29 +53,65 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr data-genre="Computer Science">
               <td>The Catcher in the Rye</td>
               <td>J.D. Salinger</td>
-              <td>Fiction</td>
+              <td>Computer Science</td>
               <td>Available</td>
               <td><button>Borrow</button></td>
             </tr>
-            <tr>
+            <tr data-genre="Management">
               <td>Brave New World</td>
               <td>Aldous Huxley</td>
-              <td>Dystopian</td>
+              <td>Management</td>
               <td>Available</td>
               <td><button>Borrow</button></td>
             </tr>
-            <tr>
+            <tr data-genre="Law">
               <td>The Hobbit</td>
               <td>J.R.R. Tolkien</td>
-              <td>Fantasy</td>
+              <td>Law</td>
+              <td>Available</td>
+              <td><button>Borrow</button></td>
+            </tr>
+            <tr data-genre="Law">
+              <td>The Catcher in the Rye</td>
+              <td>J.R.R. Tolkien</td>
+              <td>Law</td>
               <td>Available</td>
               <td><button>Borrow</button></td>
             </tr>
           </tbody>
         </table>
+        <script>
+          let selectedGenre = 'All';
+
+          function searchBooks() {
+            const searchTerm = document.getElementById('searchBar').value.toLowerCase();
+            const rows = document.querySelectorAll('#bookTable tbody tr');
+            rows.forEach(row => {
+              const title = row.cells[0].textContent.toLowerCase();
+              const genre = row.getAttribute('data-genre');
+              if ((title.includes(searchTerm) || searchTerm === '') && (genre === selectedGenre || selectedGenre === 'All')) {
+                row.style.display = '';
+              } else {
+                row.style.display = 'none';
+              }
+            });
+          }
+
+          function filterByGenre(genre) {
+            selectedGenre = genre;
+            searchBooks(); // Reapply the search filter with the new genre
+          }
+
+          function resetTable() {
+            document.getElementById('searchBar').value = '';
+            selectedGenre = 'All';
+            searchBooks(); // Reset the table to show all rows
+          }
+        </script>
+
       </div>
     </main>
 
