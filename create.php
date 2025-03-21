@@ -26,7 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($stmt) {
         $stmt->bind_param('sssii', $title, $author, $status, $genre, $lender_id);
-        print_r("hello ");
 
         // Execute query
         if ($stmt->execute()) {
@@ -34,7 +33,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // echo "";
         } else {
-            print_r("hello error");
 
             echo "Error: " . $stmt->error;
         }

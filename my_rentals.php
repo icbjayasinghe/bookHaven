@@ -28,31 +28,14 @@
           <thead>
             <tr>
               <th>Title</th>
+              <th>Author</th>
               <th>Return Due</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            <?php include 'get_my_rentals.php'; ?>
-            <!-- <tr>
-              <td>The Great Gatsby</td>
-              <td>2025-03-15</td>
-              <td>Rented</td>
-              <td><button>Confirm Return</button></td>
-            </tr>
-            <tr>
-              <td>1984</td>
-              <td>2025-03-20</td>
-              <td>Rented</td>
-              <td><button>Confirm Return</button></td>
-            </tr>
-            <tr>
-              <td>To Kill a Mockingbird</td>
-              <td>2025-03-25</td>
-              <td>Rented</td>
-              <td><button>Confirm Return</button></td>
-            </tr> -->
+            <?php include 'get_my_rentals.php';?>
           </tbody>
         </table>
       </div>
