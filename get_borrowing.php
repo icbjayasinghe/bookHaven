@@ -12,13 +12,13 @@ try {
     // Fetch all results
     $rentals = [];
     while ($row = $result->fetch_assoc()) {
-        echo "<tr data-genre=" . $row['genre_name'] . ">";
+        echo "<tr data-genre=" . $row['genre_name'] . " id=" . $row['book_id'] . ">";
         echo "<td>" . $row['title'] . "</td>";
         echo "<td>" . $row['author'] . "</td>";
         echo "<td>" . $row['genre_name'] . "</td>";
         echo "<td>" . $row['status'] . "</td>";
-        // echo " <td><a class="btn btn-primary" href="borrowing.php?book_id=' . $row['book_id'] . '" role="button">Borrow</a></td>";
-        echo " <td> <a class='btn btn-primary' href='borrowing.php?book_id= ".$row['book_id']."' >Borrow</a> </td>";
+        // echo " <td> <a class='btn btn-primary' href='borrowing.php?book_id= ".$row['book_id']." &user_id=1'>Borrow</a> </td>";
+        echo " <td> <a class='btn btn-primary' href='borrowing.php?book_id= ".$row['book_id']." &user_id=1' onclick='confAlert(".$row['book_id'].")'>Borrow</a> </td>";
         // echo " <td><button>Borrow</button></td>";
         echo "</tr>";    
     }

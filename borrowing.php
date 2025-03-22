@@ -94,4 +94,28 @@
       <p>&copy; 2025 Sharing Library</p>
     </footer>
   </body>
+
+  <script>
+    function confAlert(book_id) {
+      let text = "Send borrowing request to the owner?";
+      var book_id = book_id;
+      var user_id = 1;
+      if (confirm(text) == true) {
+
+        $.post("create_borrowing_request.php", {
+          book_id: book_id, 
+          user_id: user_id
+        }, function(data, status) {
+          alert("Borrowing request sent!");
+
+          alert(status);
+        });
+        text = "You pressed OK!";
+      } else {
+        window.location.href = '/borrowing.php';
+        text = "You canceled!";
+      }
+      // document.getElementById("demo").innerHTML = text;
+    }
+</script>
 </html>
