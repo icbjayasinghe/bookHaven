@@ -40,6 +40,16 @@ CREATE TABLE `book` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `book`
+--
+
+LOCK TABLES `book` WRITE;
+/*!40000 ALTER TABLE `book` DISABLE KEYS */;
+INSERT INTO `book` VALUES (1,'Java for Beginners','ICB','Unavailable',1,1,0.00),(2,'PM','ADB','Available',3,1,0.00),(3,'Law for ECommerce','YUT','Available',4,1,0.00),(4,'Anthony\'s Computer Science Advanced Concepts','Tia m','Unavailable',1,1,0.00),(5,'AWS Basics','ASD','Available',1,1,0.00);
+/*!40000 ALTER TABLE `book` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `borrow`
 --
 
@@ -63,6 +73,16 @@ CREATE TABLE `borrow` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `borrow`
+--
+
+LOCK TABLES `borrow` WRITE;
+/*!40000 ALTER TABLE `borrow` DISABLE KEYS */;
+INSERT INTO `borrow` VALUES (4,1,4,NULL,NULL,'Requested'),(5,1,1,NULL,NULL,'Requested');
+/*!40000 ALTER TABLE `borrow` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `genre`
 --
 
@@ -76,6 +96,16 @@ CREATE TABLE `genre` (
   UNIQUE KEY `genre_id_UNIQUE` (`genre_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `genre`
+--
+
+LOCK TABLES `genre` WRITE;
+/*!40000 ALTER TABLE `genre` DISABLE KEYS */;
+INSERT INTO `genre` VALUES (1,'Computer Science'),(3,'Management'),(4,'Law');
+/*!40000 ALTER TABLE `genre` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `user`
@@ -95,6 +125,16 @@ CREATE TABLE `user` (
   UNIQUE KEY `email_UNIQUE` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user`
+--
+
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'admin@dal.ca','Admin','Admin','Active','123456'),(8,'adam@dal.ca','Adam','Admin','Active','$2y$10$/fnXx0n1t7f7QdWFgbUx7eg61YJ4T34wQxednK.Lt54jkma2gRZcK');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -105,4 +145,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-03-23 11:22:35
+-- Dump completed on 2025-03-23 11:25:01

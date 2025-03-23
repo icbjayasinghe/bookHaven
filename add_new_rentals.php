@@ -24,7 +24,7 @@
 
     <main>
       <div class="table-container">
-        <form action="create.php" method="POST">
+        <form action="create_book.php" method="POST">
             <label for="title">Title</label>
             <input type="text" id="title" name="title" placeholder="Enter book title" required>
 
@@ -37,6 +37,9 @@
                 <option value="3">Management</option>
                 <option value="4">Law</option>
             </select>
+
+            <label for="author">Rental Price</label>
+            <input type="number" id="price" name="price" min="0" max="1000" step="0.01" placeholder="Enter Rental Price" required>
 
             <button type="submit">Add New Books</button>
         </form>

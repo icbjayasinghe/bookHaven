@@ -2,7 +2,8 @@
 include './db.php';
 
 try {           
-    $query = "SELECT * FROM book b inner join genre g on b.genre_id = g.genre_id";
+    $query = "SELECT * FROM book b inner join genre g on b.genre_id = g.genre_id 
+    WHERE status = 'Available' ORDER BY title ASC";
     $result = $conn->query($query);
 
     if ($result === false) {
@@ -16,10 +17,9 @@ try {
         echo "<td>" . $row['title'] . "</td>";
         echo "<td>" . $row['author'] . "</td>";
         echo "<td>" . $row['genre_name'] . "</td>";
+        echo "<td>" . $row['price'] . "</td>";
         echo "<td>" . $row['status'] . "</td>";
-        // echo " <td> <a class='btn btn-primary' href='borrowing.php?book_id= ".$row['book_id']." &user_id=1'>Borrow</a> </td>";
-        echo " <td> <a class='btn btn-primary' href='borrowing.php?book_id= ".$row['book_id']." &user_id=1' onclick='confAlert(".$row['book_id'].")'>Borrow</a> </td>";
-        // echo " <td><button>Borrow</button></td>";
+        echo " <td> <a class='btn btn-primary' onclick='confAlert(".$row['book_id'].")'>Borrow</a> </td>";
         echo "</tr>";    
     }
 
