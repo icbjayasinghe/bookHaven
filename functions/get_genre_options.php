@@ -1,5 +1,5 @@
 <?php
-include './db.php';
+include 'db.php';
 
 try {           
     $query = "SELECT * FROM genre";

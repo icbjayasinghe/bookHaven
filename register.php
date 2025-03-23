@@ -14,7 +14,7 @@
     <main class="login-container">
         <div class="login-form">
             <h2>Register</h2>
-            <form action="create_user.php" method="POST">
+            <form action="./functions/create_user.php" method="POST">
                 <div class="input-group">
                     <label for="firstname">First Name:</label>
                     <input type="text" id="firstname" name="firstname" required>

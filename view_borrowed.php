@@ -12,10 +12,11 @@
     </header>
 
     <nav>
-      <ul>
+    <ul>
         <li><a href="./borrowing.php">Borrowing</a></li>
         <li><a href="./view_borrowed.php" class="active">View Borrowed</a></li>
         <li><a href="./my_rentals.php">My Rentals</a></li>
+        <li><a href="./rental_requests.php">Rental Requests</a></li>
         <li><a href="./add_new_rentals.php">Add New Rentals</a></li>
       </ul>
     </nav>

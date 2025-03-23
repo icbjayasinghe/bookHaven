@@ -1,9 +1,8 @@
 <?php
-include './db.php';
+include 'db.php';
 
 try {           
-    $query = "SELECT * FROM book b inner join genre g on b.genre_id = g.genre_id 
-    WHERE status = 'Available' ORDER BY title ASC";
+    $query = "SELECT * FROM book b inner join genre g on b.genre_id = g.genre_id WHERE status = 'Available' ORDER BY title ASC";
     $result = $conn->query($query);
 
     if ($result === false) {

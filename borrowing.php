@@ -15,10 +15,11 @@
     </header>
 
     <nav>
-      <ul>
+    <ul>
         <li><a href="./borrowing.php" class="active">Borrowing</a></li>
         <li><a href="./view_borrowed.php">View Borrowed</a></li>
         <li><a href="./my_rentals.php">My Rentals</a></li>
+        <li><a href="./rental_requests.php">Rental Requests</a></li>
         <li><a href="./add_new_rentals.php">Add New Rentals</a></li>
       </ul>
     </nav>
@@ -64,7 +65,7 @@
             </tr>
           </thead>
           <tbody>
-            <?php include 'get_borrowing.php';?>
+            <?php include './functions/get_borrowing.php';?>
           </tbody>
         </table>
         <script>
@@ -115,13 +116,13 @@
     function confAlert(book) {
       dialog.showModal();
       book_id = book;
-      user_id = 1;
+      user_id = 1; // need to get the user id from the session
     }
 
     function acceptBorrowingRequest(book, user) {
       $.ajax({
         type: "POST",
-        url: 'create_borrowing_request.php',
+        url: './functions/create_borrowing_request.php',
         data: {
           book_id: book,
           user_id: user

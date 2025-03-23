@@ -14,17 +14,18 @@
     </header>
 
     <nav>
-        <ul>
-            <li><a href="./borrowing.php">Borrowing</a></li>
-            <li><a href="./view_borrowed.php">View Borrowed</a></li>
-            <li><a href="./my_rentals.php">My Rentals</a></li>
-            <li><a href="./add_new_rentals.php" class="active">Add New Rentals</a></li>
-        </ul>
+    <ul>
+        <li><a href="./borrowing.php">Borrowing</a></li>
+        <li><a href="./view_borrowed.php">View Borrowed</a></li>
+        <li><a href="./my_rentals.php">My Rentals</a></li>
+        <li><a href="./rental_requests.php">Rental Requests</a></li>
+        <li><a href="./add_new_rentals.php" class="active">Add New Rentals</a></li>
+      </ul>
     </nav>
 
     <main>
       <div class="table-container">
-        <form action="create_book.php" method="POST">
+        <form action="./functions/create_book.php" method="POST">
             <label for="title">Title</label>
             <input type="text" id="title" name="title" placeholder="Enter book title" required>
 

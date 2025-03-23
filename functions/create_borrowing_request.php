@@ -1,6 +1,6 @@
 <?php
 // Include database connection
-include './db.php';
+include 'db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve form data
@@ -11,10 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // $borrowed_date = date("Y-m-d");
     // $return_date = date('Y-m-d', strtotime($borrowed_date. ' + 14 days')); 
     // $last_updated_date = date("Y-m-d");
-
-    print_r($book_id);
  
-
     // Validate input
     if (empty($book_id) || empty($user_id) || empty($book_status) || empty($borrow_status)) {
         echo "All fields are required.";
@@ -27,8 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $sql_update = "UPDATE book SET status = ? WHERE book_id = ?;";
     $stmt_update = $conn->prepare($sql_update);
-
-   
 
     if ($stmt && $stmt_update) {
         $stmt->bind_param('iis', $user_id, $book_id, $borrow_status);

@@ -1,6 +1,6 @@
 <?php
 // Include database connection
-include './db.php';
+include 'db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve signup data
