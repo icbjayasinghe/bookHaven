@@ -6,7 +6,7 @@ include 'db.php';
 try {
     // Get the user ID from the session
     //$userId = $_SESSION['user_id'];
-    $userId=1;
+    $userId= $_POST['user_id'];
 
     // Prepare and execute the query
     $query = "SELECT br.*, b.author, b.title, b.lender_id,u.first_name,u.last_name  FROM borrow br 

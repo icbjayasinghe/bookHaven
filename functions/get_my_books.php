@@ -5,8 +5,7 @@ include 'db.php';
 
 try {
     // Get the user ID from the session
-    //$userId = $_SESSION['user_id'];
-    $userId=1;
+    $userId = $_POST['user_id'];
 
     // Prepare and execute the query
     $query = "SELECT * FROM book WHERE lender_id = ?;"; 

@@ -32,8 +32,9 @@
               <th>Author</th>
             </tr>
           </thead>
-          <tbody>
-            <?php include './functions/get_my_books.php';?>
+          <tbody id="my_books">
+            <?php 
+            // include './functions/get_my_books.php';?>
           </tbody>
         </table>
         <table>
@@ -45,8 +46,9 @@
               <th>Status</th>
             </tr>
           </thead>
-          <tbody>
-            <?php include './functions/get_my_rentals.php';?>
+          <tbody id="my_rentals">
+            <?php 
+            // include './functions/get_my_rentals.php';?>
           </tbody>
         </table>
       </div>
@@ -56,4 +58,42 @@
       <p>&copy; 2025 Sharing Library</p>
     </footer>
   </body>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  <script>
+
+    var user_id = localStorage.getItem("user_id");
+    $.ajax({
+        type: "POST",
+        url: './functions/get_my_books.php',
+        data: {
+          user_id: user_id
+        },
+        cache: false,
+        success: function(data) {
+          document.querySelector('#my_books').innerHTML = data;
+        },
+        error: function(xhr, status, error) {
+          alert(xhr.responseText);
+          console.error(xhr);
+        }
+      });
+
+      $.ajax({
+        type: "POST",
+        url: './functions/get_my_rentals.php',
+        data: {
+          user_id: user_id
+        },
+        cache: false,
+        success: function(data) {
+          document.querySelector('#my_rentals').innerHTML = data;
+        },
+        error: function(xhr, status, error) {
+          alert(xhr.responseText);
+          console.error(xhr);
+        }
+      });
+
+  </script>
 </html>

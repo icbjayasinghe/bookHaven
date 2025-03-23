@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Borrow a Book</title>
     <link rel="stylesheet" href="css/borrow.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <!-- <script defer src="js/search.js"></script> -->
   </head>
   <body>
@@ -65,7 +63,9 @@
             </tr>
           </thead>
           <tbody>
-            <?php include './functions/get_borrowing.php';?>
+            <?php 
+            // include './functions/get_borrowing.php';
+            ?>
           </tbody>
         </table>
         <script>
@@ -109,14 +109,45 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
   <script>
-    const dialog = document.getElementById('modal_dialog');
     var book_id = 0;
-    var user_id = 0;
+    var user_id = localStorage.getItem("user_id");
 
+    // fetch('./functions/get_my_rentals.php', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //  \
+    // })
+    //   .then((response) => response.text())
+    //   .then((data) => {
+    //     console.log('Response from server:', data);
+    //     // Optionally, update the table with the response
+    //     document.querySelector('tbody').innerHTML = data;
+    //   })
+    //   .catch((error) => console.error('Error:', error));
+
+    $.ajax({
+        type: "POST",
+        url: './functions/get_borrowing.php',
+        data: {
+          user_id: user_id
+        },
+        cache: false,
+        success: function(data) {
+          document.querySelector('tbody').innerHTML = data;
+        },
+        error: function(xhr, status, error) {
+          alert(xhr.responseText);
+          console.error(xhr);
+        }
+      });
+
+    const dialog = document.getElementById('modal_dialog');
     function confAlert(book) {
       dialog.showModal();
       book_id = book;
-      user_id =  localStorage.getItem("user_id"); // need to get the user id from the session
+      // user_id =  localStorage.getItem("user_id"); // need to get the user id from the session
     }
 
     function acceptBorrowingRequest(book, user) {

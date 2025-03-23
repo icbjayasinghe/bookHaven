@@ -1,9 +1,19 @@
 <?php
 include 'db.php';
 
-try {           
-    $query = "SELECT * FROM book b inner join genre g on b.genre_id = g.genre_id WHERE status = 'Available' ORDER BY title ASC";
-    $result = $conn->query($query);
+try {    
+    $userId= $_POST['user_id'];       
+    $query = "SELECT * FROM book b 
+    inner join genre g on b.genre_id = g.genre_id WHERE status = 'Available' and b.lender_id != ? 
+    ORDER BY title ASC";
+    // $result = $conn->query($query);
+
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $userId);
+    $stmt->execute();
+
+    // Get the result set from the prepared statement
+    $result = $stmt->get_result();
 
     if ($result === false) {
         throw new Exception("Query failed: " . $conn->error);
@@ -18,7 +28,7 @@ try {
         echo "<td>" . $row['genre_name'] . "</td>";
         echo "<td>" . $row['price'] . "</td>";
         echo "<td>" . $row['status'] . "</td>";
-        echo " <td> <a class='btn btn-primary' onclick='confAlert(".$row['book_id'].")'>Borrow</a> </td>";
+        echo " <td> <button onclick='confAlert(".$row['book_id'].")'>Borrow</button> </td>";
         echo "</tr>";    
     }
 
