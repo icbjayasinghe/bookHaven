@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $author = isset($_POST['author']) ? trim($_POST['author']) : '';
     $genre = isset($_POST['genre']) ? trim($_POST['genre']) : '';
     $price = isset($_POST['price']) ? trim($_POST['price']) : '';
-    $lender_id = 1; // Hardcoded for now  
+    $lender_id = isset($_POST['user_id']) ? trim($_POST['user_id']) : '';
     $status = "Available"; 
 
     // Validate input
@@ -30,10 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Execute query
         if ($stmt->execute()) {
             echo "<div style='color: green;'>Book added successfully..</div>";
-
-            // echo "";
         } else {
-
             echo "Error: " . $stmt->error;
         }
 
@@ -44,6 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Close database connection
     $conn->close();
-    header("Location: add_new_rentals.php");
+    header("Location: ../add_new_rentals.php");
 }
 ?>

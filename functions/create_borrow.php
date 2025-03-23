@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $author = isset($_POST['author']) ? trim($_POST['author']) : '';
     $genre = isset($_POST['genre']) ? trim($_POST['genre']) : '';
     // $description = isset($_POST['description']) ? trim($_POST['description']) : '';
-    $lender_id = 1; // Hardcoded for now  
+    $lender_id = isset($_POST['user_id']) ? trim($_POST['user_id']) : '';
     $status = "Available"; 
 
     // Validate input

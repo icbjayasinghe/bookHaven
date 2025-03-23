@@ -116,7 +116,7 @@
     function confAlert(book) {
       dialog.showModal();
       book_id = book;
-      user_id = 1; // need to get the user id from the session
+      user_id =  localStorage.getItem("user_id"); // need to get the user id from the session
     }
 
     function acceptBorrowingRequest(book, user) {

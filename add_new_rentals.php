@@ -32,11 +32,13 @@
             <label for="author">Author</label>
             <input type="text" id="author" name="author" placeholder="Enter author name" required>
 
+            <input type="text" id="user_id" name="user_id" value="" hidden>
+
             <label for="genre">Genre</label>
             <select id="genre" name="genre" required>
-                <option value="1">Computer Science</option>
-                <option value="3">Management</option>
-                <option value="4">Law</option>
+                <?php 
+                    include './functions/get_genre_options.php';
+                ?>
             </select>
 
             <label for="author">Rental Price</label>
@@ -51,5 +53,9 @@
         <p>&copy; 2025 Sharing Library</p>
     </footer>
 </body>
+<script>
+    // alert(localStorage.getItem('user_id'))
+    document.getElementById('user_id').value = localStorage.getItem('user_id');
+</script>
 </html>
 
