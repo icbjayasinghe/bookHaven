@@ -14,11 +14,11 @@
 
     <nav>
     <ul>
-        <li><a href="./borrowing.php" class="active">Borrowing</a></li>
-        <li><a href="./view_borrowed.php">View Borrowed</a></li>
-        <li><a href="./my_rentals.php">My Rentals</a></li>
-        <li><a href="./rental_requests.php">Rental Requests</a></li>
-        <li><a href="./add_new_rentals.php">Add New Rentals</a></li>
+        <li><a href="./borrowing.php" class="active">Books to Borrow</a></li>
+        <li><a href="./view_borrowed.php">Requests on Borrowed</a></li>
+        <li><a href="./my_rentals.php">My Contirbutions</a></li>
+        <li><a href="./rental_requests.php">Requests for My Books</a></li>
+        <li><a href="./add_new_rentals.php">Add New Book</a></li>
       </ul>
     </nav>
 
@@ -36,16 +36,11 @@
         <h2>Available Books</h2>
 
         <!-- 搜索框 -->
-        <input
-          type="text"
-          id="searchBar"
-          placeholder="Search for a book..."
-          onkeyup="searchBooks()"
-        />
+        <input type="text" id="searchBar" placeholder="Search for a book..." onkeyup="searchBooks()"/>
 
         <!-- Genre search buttons -->
         <div class="genre-buttons">
-          <button onclick="filterByGenre('Computer Science')">Computer Science</button>
+          <button onclick="filterByGenre('Computer')">Computer Science</button>
           <button onclick="filterByGenre('Management')">Management</button>
           <button onclick="filterByGenre('Law')">Law</button>
         </div>
@@ -76,7 +71,7 @@
             const rows = document.querySelectorAll('#bookTable tbody tr');
             rows.forEach(row => {
               const title = row.cells[0].textContent.toLowerCase();
-              const genre = row.getAttribute('data-genre');
+              const genre = row.getAttribute('data-genre').toLowerCase().trim();
               if ((title.includes(searchTerm) || searchTerm === '') && (genre === selectedGenre || selectedGenre === 'All')) {
                 row.style.display = '';
               } else {
@@ -86,7 +81,7 @@
           }
 
           function filterByGenre(genre) {
-            selectedGenre = genre;
+            selectedGenre = genre.toLowerCase().trim();
             searchBooks(); // Reapply the search filter with the new genre
           }
 
@@ -99,11 +94,6 @@
 
       </div>
     </main>
-
-    <footer>
-      <p>&copy; 2025 Sharing Library</p>
-    </footer>
-
   </body>
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -174,4 +164,7 @@
       dialog.close();
     }
 </script>
+<!-- <footer>
+  <p>&copy; 2025 Sharing Library</p>
+</footer> -->
 </html>

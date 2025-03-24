@@ -1,17 +1,15 @@
 <?php
 include 'db.php';
 
-//session_start();
-
 try {
     // Get the user ID from the session
     //$userId = $_SESSION['user_id'];
     $userId= $_POST['user_id'];
 
     // Prepare and execute the query
-    $query = "SELECT br.*, b.author, b.title, b.lender_id,u.first_name,u.last_name  FROM borrow br 
+    $query = "SELECT br.*, b.author, b.title, b.lender_id,br.end_date,u.first_name,u.last_name  FROM borrow br 
     INNER JOIN book b ON br.book_id = b.book_id  
-    INNER JOIN user u ON br.borrower_id = u.user_id WHERE br.status = 'Requested' OR br.status = 'Ready' AND b.lender_id = ?;";
+    INNER JOIN user u ON b.lender_id = u.user_id WHERE br.borrower_id = ?;";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("i", $userId);
     $stmt->execute();
@@ -29,16 +27,21 @@ try {
         echo "<tr>";
         echo "<td>" . $row['title'] . "</td>";
         echo "<td>" . $row['author'] . "</td>";
+        echo "<td>" . (substr($row['end_date'], 0, 10)) . "</td>";
         echo "<td>" . $row['first_name'] . " " . $row['last_name'] . "</td>";
-        // Display button based on status
+        // Display message or button based on status
         if ($row['status'] === 'Requested') {
-            echo "<td><button type='button' onclick='confAlert_rev(" . $row['borrow_id'] . ", " . $row['book_id'] . ")'>Review</button></td>";
+            echo "<td>Pending Approval</td>";
+        } elseif ($row['status'] === 'Rented') {
+            echo "<td><button type='button' onclick='confAlert(". $row['borrow_id'].")'>Ready to Return</button></td>";
         } elseif ($row['status'] === 'Ready') {
-            echo "<td><button type='button' onclick='confAlert_ret(" . $row['borrow_id'] . ", " . $row['book_id'] . ")'>Confirm As Returned</button></td>";
-        } else {
-            echo "<td>Status: " . $row['status'] . "</td>";
+            echo "<td>Return In Progress</td>";
         }
-        echo "</tr>";
+         else {
+            echo "<td>" . $row['status'] . "</td>";
+        }
+        
+        echo "</tr>";echo "</tr>";
     }
 
 

@@ -8,23 +8,23 @@
   </head>
   <body>
     <header>
-      <h1>My Rentals</h1>
+      <h1>My Books and Rental History</h1>
     </header>
 
     <nav>
     <ul>
-        <li><a href="./borrowing.php">Borrowing</a></li>
-        <li><a href="./view_borrowed.php">View Borrowed</a></li>
-        <li><a href="./my_rentals.php" class="active">My Rentals</a></li>
-        <li><a href="./rental_requests.php">Rental Requests</a></li>
-        <li><a href="./add_new_rentals.php">Add New Rentals</a></li>
+        <li><a href="./borrowing.php">Books to Borrow</a></li>
+        <li><a href="./view_borrowed.php">Requests on Borrowed</a></li>
+        <li><a href="./my_rentals.php" class="active">My Contirbutions</a></li>
+        <li><a href="./rental_requests.php">Requests for My Books</a></li>
+        <li><a href="./add_new_rentals.php">Add New Book</a></li>
       </ul>
     </nav>
 
     <main>
       <div class="table-container">
-        <h2>My Rentals and History</h2>
-        <input type="text" id="searchBar" placeholder="Search for a book..." />
+        <h2>My Books</h2>
+        <!-- <input type="text" id="searchBar" placeholder="Search for a book..." /> -->
         <table>
           <thead>
             <tr>
@@ -34,29 +34,29 @@
           </thead>
           <tbody id="my_books">
             <?php 
-            // include './functions/get_my_books.php';?>
+            // include './functions/get_my_books.php';
+            ?>
           </tbody>
         </table>
+        <h2>My Rental History</h2>
         <table>
           <thead>
             <tr>
               <th>Title</th>
               <th>Author</th>
+              <th>Return Date</th>
               <th>Borrower</th>
               <th>Status</th>
             </tr>
           </thead>
           <tbody id="my_rentals">
             <?php 
-            // include './functions/get_my_rentals.php';?>
+            // include './functions/get_my_rentals.php';
+            ?>
           </tbody>
         </table>
       </div>
     </main>
-
-    <footer>
-      <p>&copy; 2025 Sharing Library</p>
-    </footer>
   </body>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
@@ -96,4 +96,7 @@
       });
 
   </script>
+  <!-- <footer>
+   <p>&copy; 2025 Sharing Library</p>
+  </footer> -->
 </html>

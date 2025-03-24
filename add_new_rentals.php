@@ -10,16 +10,16 @@
 </head>
 <body>
     <header>
-        <h1>Add New Rental</h1>
+        <h1>Add New Book to Rent</h1>
     </header>
 
     <nav>
     <ul>
-        <li><a href="./borrowing.php">Borrowing</a></li>
-        <li><a href="./view_borrowed.php">View Borrowed</a></li>
-        <li><a href="./my_rentals.php">My Rentals</a></li>
-        <li><a href="./rental_requests.php">Rental Requests</a></li>
-        <li><a href="./add_new_rentals.php" class="active">Add New Rentals</a></li>
+        <li><a href="./borrowing.php">Books to Borrow</a></li>
+        <li><a href="./view_borrowed.php">Requests on Borrowed</a></li>
+        <li><a href="./my_rentals.php">My Contirbutions</a></li>
+        <li><a href="./rental_requests.php">Requests for My Books</a></li>
+        <li><a href="./add_new_rentals.php" class="active">Add New Book</a></li>
       </ul>
     </nav>
 
@@ -44,18 +44,19 @@
             <label for="author">Rental Price</label>
             <input type="number" id="price" name="price" min="0" max="1000" step="0.01" placeholder="Enter Rental Price" required>
 
-            <button type="submit">Add New Books</button>
+            <button type="submit">Add New Book</button>
         </form>
       </div>
     </main>
 
-    <footer>
-        <p>&copy; 2025 Sharing Library</p>
-    </footer>
+
 </body>
 <script>
     // alert(localStorage.getItem('user_id'))
     document.getElementById('user_id').value = localStorage.getItem('user_id');
 </script>
+<!-- <footer>
+    <p>&copy; 2025 Sharing Library</p>
+</footer> -->
 </html>
 

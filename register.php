@@ -44,10 +44,6 @@
         </div>
     </main>
 
-    <footer>
-        <p>&copy; 2025 P2P Library. All rights reserved.</p>
-    </footer>
-
     <script>
         document.getElementById("registerForm").addEventListener("submit", function(event) {
             event.preventDefault(); // 阻止表单默认提交
@@ -64,5 +60,8 @@
         });
     </script>
 </body>
+<!-- <footer>
+    <p>&copy; 2025 P2P Library. All rights reserved.</p>
+</footer> -->
 </html>
 

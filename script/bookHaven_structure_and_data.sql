@@ -36,7 +36,7 @@ CREATE TABLE `book` (
   KEY `lender_id_idx` (`lender_id`),
   CONSTRAINT `genre_id` FOREIGN KEY (`genre_id`) REFERENCES `genre` (`genre_id`) ON DELETE RESTRICT,
   CONSTRAINT `lender_id` FOREIGN KEY (`lender_id`) REFERENCES `user` (`user_id`) ON DELETE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +45,7 @@ CREATE TABLE `book` (
 
 LOCK TABLES `book` WRITE;
 /*!40000 ALTER TABLE `book` DISABLE KEYS */;
-INSERT INTO `book` VALUES (1,'Java for Beginners','ICB','Unavailable',1,1,0.00),(2,'PM','ADB','Available',3,1,0.00),(3,'Law for ECommerce','YUT','Available',4,1,0.00),(4,'Anthony\'s Computer Science Advanced Concepts','Tia m','Unavailable',1,1,0.00),(5,'AWS Basics','ASD','Available',1,1,0.00);
+INSERT INTO `book` VALUES (6,'C++ for Beginners','ASD','Available',5,9,5.00),(7,'Law in ECommerce','RTY','Available',7,9,4.00),(8,'Project Management in Software Development','JKL','Available',6,9,6.00),(9,'Agile Software Development','GHJ','Available',5,10,10.00);
 /*!40000 ALTER TABLE `book` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -69,7 +69,7 @@ CREATE TABLE `borrow` (
   KEY `book_id_idx` (`book_id`),
   CONSTRAINT `book_id` FOREIGN KEY (`book_id`) REFERENCES `book` (`book_id`),
   CONSTRAINT `borrower_id` FOREIGN KEY (`borrower_id`) REFERENCES `user` (`user_id`) ON DELETE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -78,7 +78,7 @@ CREATE TABLE `borrow` (
 
 LOCK TABLES `borrow` WRITE;
 /*!40000 ALTER TABLE `borrow` DISABLE KEYS */;
-INSERT INTO `borrow` VALUES (4,1,4,NULL,NULL,'Requested'),(5,1,1,NULL,NULL,'Requested');
+INSERT INTO `borrow` VALUES (6,10,7,'2025-03-24 00:00:00','2025-04-07 00:00:00','Returned');
 /*!40000 ALTER TABLE `borrow` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -94,7 +94,7 @@ CREATE TABLE `genre` (
   `genre_name` varchar(60) NOT NULL,
   PRIMARY KEY (`genre_id`),
   UNIQUE KEY `genre_id_UNIQUE` (`genre_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,7 +103,7 @@ CREATE TABLE `genre` (
 
 LOCK TABLES `genre` WRITE;
 /*!40000 ALTER TABLE `genre` DISABLE KEYS */;
-INSERT INTO `genre` VALUES (1,'Computer Science'),(3,'Management'),(4,'Law');
+INSERT INTO `genre` VALUES (5,'Computer Science'),(6,'Management'),(7,'Law');
 /*!40000 ALTER TABLE `genre` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -123,7 +123,7 @@ CREATE TABLE `user` (
   `password` varchar(255) NOT NULL DEFAULT '123456',
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -132,7 +132,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'admin@dal.ca','Admin','Admin','Active','123456'),(8,'adam@dal.ca','Adam','Admin','Active','$2y$10$/fnXx0n1t7f7QdWFgbUx7eg61YJ4T34wQxednK.Lt54jkma2gRZcK');
+INSERT INTO `user` VALUES (9,'adam@dal.ca','Adam','Carter','Active','$2y$10$pUB/eKRKoJj3b0ptPwmviOPkdM06MzoWyT0Hv9JH9XCFjbIX.fhO.'),(10,'ben@dal.ca','Ben','Marks','Active','$2y$10$QCIpyf5OitBgO7KIBtbVn.8BB8fnHvDHl3nMf0cbNW4AplDLeG2/u');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -145,4 +145,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-03-23 11:25:01
+-- Dump completed on 2025-03-24 11:28:49
