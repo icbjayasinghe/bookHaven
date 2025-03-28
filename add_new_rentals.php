@@ -5,11 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add New Rental</title>
     <link rel="stylesheet" href="css/Add_new_rentals.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <header>
+        <div style = "float:right; margin-right: 20px;">
+            <div onClick = "logoutPopup()">
+            <img src="./assets/user-yellow-circle-20550.png" class="img-circle" alt="Cinque Terre" width="30" height="30">
+            <div id="name_div" style = "font-size:Large" data-tooltip="Click to log out"></div>
+            </div>
+            
+            <a class="btn" style="display: none; cursor: pointer;" id="logout_btn" onClick = "logout()">
+            <span class="fa fa-sign-out"></span>Log out
+            </a>
+        </div>
         <h1>Add New Book to Rent</h1>
     </header>
 
@@ -52,8 +61,29 @@
 
 </body>
 <script>
-    // alert(localStorage.getItem('user_id'))
     document.getElementById('user_id').value = localStorage.getItem('user_id');
+
+    if(typeof(Storage) !== "undefined") { 
+        document.getElementById("name_div").innerHTML =  
+        localStorage.getItem("first_name")+ " " +localStorage.getItem("last_name"); 
+    }
+    var logoutFlag = false;
+    function logoutPopup() {
+      if(logoutFlag) {
+        document.querySelector('a.btn').style.display = 'none';
+        logoutFlag = false;
+      } else {
+        document.querySelector('a.btn').style.display = 'block';
+        logoutFlag = true;
+      }
+    }
+
+    function logout() {
+      localStorage.removeItem("user_id");
+      localStorage.removeItem("first_name");
+      localStorage.removeItem("last_name");
+      window.location.href = "./index.html";
+    }
 </script>
 <!-- <footer>
     <p>&copy; 2025 Sharing Library</p>

@@ -27,7 +27,11 @@ try {
         echo "<tr>";
         echo "<td>" . $row['title'] . "</td>";
         echo "<td>" . $row['author'] . "</td>";
-        echo "<td>" . (substr($row['end_date'], 0, 10)) . "</td>";
+        if ($row['end_date'] == null) {
+            echo "<td>Not Set</td>";
+        } else {
+            echo "<td>" . (substr($row['end_date'], 0, 10)) . "</td>";
+        }
         echo "<td>" . $row['first_name'] . " " . $row['last_name'] . "</td>";
         // Display message or button based on status
         if ($row['status'] === 'Requested') {

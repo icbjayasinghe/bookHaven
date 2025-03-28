@@ -5,9 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rentals Requests</title>
     <link rel="stylesheet" href="./css/My_rentals.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
     <header>
+      <div style = "float:right; margin-right: 20px;">
+          <div onClick = "logoutPopup()">
+          <img src="./assets/user-yellow-circle-20550.png" class="img-circle" alt="Cinque Terre" width="30" height="30">
+          <div id="name_div" style = "font-size:Large" data-tooltip="Click to log out"></div>
+          </div>
+          
+          <a class="btn" style="display: none; cursor: pointer;" id="logout_btn" onClick = "logout()">
+          <span class="fa fa-sign-out"></span>Log out
+          </a>
+      </div>
       <h1>Requests Made by Borrowers on My Books</h1>
     </header>
 
@@ -62,6 +73,28 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   
   <script> 
+    if(typeof(Storage) !== "undefined") { 
+        document.getElementById("name_div").innerHTML =  
+        localStorage.getItem("first_name")+ " " +localStorage.getItem("last_name"); 
+    }
+    var logoutFlag = false;
+    function logoutPopup() {
+      if(logoutFlag) {
+        document.querySelector('a.btn').style.display = 'none';
+        logoutFlag = false;
+      } else {
+        document.querySelector('a.btn').style.display = 'block';
+        logoutFlag = true;
+      }
+    }
+
+    function logout() {
+      localStorage.removeItem("user_id");
+      localStorage.removeItem("first_name");
+      localStorage.removeItem("last_name");
+      window.location.href = "./index.html";
+    }
+
     var borrow_id = 0;
     var book_id = 0;
     var user_id = localStorage.getItem("user_id");

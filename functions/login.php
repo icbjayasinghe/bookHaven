@@ -29,7 +29,7 @@ try {
     if(password_verify($password, $dbpassword)){
         $_SESSION['isLoggedIn'] = true;
         $_SESSION['email'] = $email;
-        echo json_encode(['success' => true, 'user_id' => $data['user_id']]);
+        echo json_encode(['success' => true, 'user_id' => $data['user_id'], 'first_name' => $data['first_name'], 'last_name' => $data['last_name']]);
     } else {
         echo "Password not verified";   
 

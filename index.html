@@ -58,6 +58,8 @@
                 localStorage.setItem("isLoggedIn", "true"); // 存储登录状态
                 localStorage.setItem("username", username); // 存储用户名
                 localStorage.setItem("user_id", jsonResponse.user_id);
+                localStorage.setItem("first_name", jsonResponse.first_name);
+                localStorage.setItem("last_name", jsonResponse.last_name);
                 window.location.href = "./borrowing.php"; // 跳转到 borrowing 页面
               } else {
                 alert("Invalid username or password!");

@@ -11,7 +11,7 @@ try {
     // Prepare and execute the query
     $query = "SELECT br.*, b.author, b.title, b.lender_id,u.first_name,u.last_name  FROM borrow br 
     INNER JOIN book b ON br.book_id = b.book_id  
-    INNER JOIN user u ON br.borrower_id = u.user_id WHERE br.status = 'Requested' OR br.status = 'Ready' AND b.lender_id = ?;";
+    INNER JOIN user u ON br.borrower_id = u.user_id WHERE b.lender_id = ? AND (br.status = 'Requested' OR br.status = 'Ready');";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("i", $userId);
     $stmt->execute();
